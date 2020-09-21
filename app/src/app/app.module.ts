@@ -7,6 +7,7 @@ import { ProductComponent } from './product/product.component';
 import { CategoryComponent } from './category/category.component';
 import { ContactComponent } from './contact/contact.component';
 import { EmployeeComponent } from './employee/employee.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { EmployeeComponent } from './employee/employee.component';
     ProductComponent,
     CategoryComponent,
     ContactComponent,
-    EmployeeComponent
+    EmployeeComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
