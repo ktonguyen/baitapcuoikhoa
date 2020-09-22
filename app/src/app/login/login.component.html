@@ -4,17 +4,18 @@
       <div class="text-center">
         <h2 class="app-name">Login</h2>
       </div>
+      <mat-progress-bar *ngIf="isSubmitting" mode="indeterminate"></mat-progress-bar>
       <div fxLayout="row">
         <div fxFlexFill>
           <mat-form-field class="w-100">
-            <input matInput placeholder="Email">
+            <input [(ngModel)]="username" name="username" matInput placeholder="Username">
           </mat-form-field>
         </div>
       </div>
        <div fxLayout="row">
         <div fxFlexFill>
           <mat-form-field class="w-100">
-            <input matInput type="password" placeholder="Password">
+            <input [(ngModel)]="username" name="username" matInput type="password" placeholder="Password">
           </mat-form-field>
         </div>
       </div>

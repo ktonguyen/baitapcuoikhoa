@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MediaObserver, MediaChange } from '@angular/flex-layout';
 import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +14,11 @@ export class HomeComponent implements OnInit {
   sideNavMode: 'side' | 'over' = 'side';
   toolBarHeight = 64;
   private readonly mediaWatcher: Subscription;
-  constructor(media: MediaObserver) {
+  constructor(media: MediaObserver, private router: Router) {
+    let login = localStorage.getItem('userLogin');
+    if(!login) {
+      router.navigate(['/login'])
+    };
     this.mediaWatcher = media.media$.subscribe((change: MediaChange) => {
       if (change.mqAlias === 'sm' || change.mqAlias === 'xs') {
         if (this.sideNavOpened) {

@@ -9,7 +9,7 @@ export class SideNavComponent implements OnInit {
   showMenu = false;
   routes = [
     {
-      path: '',
+      path: '/',
       data: { icon: 'dashboard', text: 'Home' }
     },
     {

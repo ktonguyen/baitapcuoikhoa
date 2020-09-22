@@ -9,20 +9,21 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class ApiService {
+  private baseUrl = "https://vnpt.fastlms.vn/";
   constructor(private http:HttpClient) {}
 
-  get(api, data) {
-    return this.http.get(api, httpOptions);
+  public get(api, data) {
+    return this.http.get(this.baseUrl + api, httpOptions);
   }
-  put(api, data) {
+  public put(api, data) {
     let body = JSON.stringify(data)
-    return this.http.put(api, body, httpOptions);
+    return this.http.put(this.baseUrl + api, body, httpOptions);
   }
-  post(api, data) {
+  public post(api, data) {
     let body = JSON.stringify(data)
-    return this.http.post(api, body, httpOptions);
+    return this.http.post(this.baseUrl + api, body, httpOptions);
   }
-  delete(api, data) {
-    return this.http.delete(api, httpOptions);
+  public delete(api, data) {
+    return this.http.delete(this.baseUrl + api, httpOptions);
   }
 }

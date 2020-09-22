@@ -22,6 +22,9 @@ import { TopNavComponent } from './home/top-nav/top-nav.component';
 import { SideNavComponent } from './home/side-nav/side-nav.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormsModule } from '@angular/forms';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { HttpClientModule } from '@angular/common/http';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -40,6 +43,7 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     MatToolbarModule,
     MatButtonModule,
     MatSidenavModule,
@@ -48,7 +52,9 @@ import { FormsModule } from '@angular/forms';
     MatMenuModule,
     MatListModule,
     MatCheckboxModule,
-    FormsModule
+    FormsModule,
+    MatProgressBarModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

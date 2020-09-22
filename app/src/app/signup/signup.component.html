@@ -4,24 +4,46 @@
       <div class="text-center">
         <h2 class="app-name">Signup</h2>
       </div>
+      <mat-progress-bar *ngIf="isSubmitting" mode="indeterminate"></mat-progress-bar>
       <div fxLayout="row">
         <div fxFlexFill>
           <mat-form-field class="w-100">
-            <input matInput placeholder="Email">
-          </mat-form-field>
-        </div>
-      </div>
-       <div fxLayout="row">
-        <div fxFlexFill>
-          <mat-form-field class="w-100">
-            <input matInput type="password" placeholder="Password">
+            <input [(ngModel)]="username" name="username" matInput placeholder="Username">
           </mat-form-field>
         </div>
       </div>
       <div fxLayout="row">
         <div fxFlexFill>
-          <button type="submit" mat-raised-button color="primary" (click)="onLogin()" class="w-100">Login</button>
-          <button type="button" mat-button color="primary" class="w-100" (click)="onSignup()">Sign Up</button>
+          <mat-form-field class="w-100">
+            <input [(ngModel)]="email" name="mail" matInput placeholder="Email">
+          </mat-form-field>
+        </div>
+      </div>
+      <div fxLayout="row">
+        <div fxFlexFill>
+          <mat-form-field class="w-100">
+            <input [(ngModel)]="password" name="password" matInput type="password" placeholder="Password">
+          </mat-form-field>
+        </div>
+      </div>
+      <div fxLayout="row">
+        <div fxFlexFill>
+          <mat-form-field class="w-100">
+            <input [(ngModel)]="firstName" name="firstName" matInput type="text" placeholder="First Name ">
+          </mat-form-field>
+        </div>
+      </div>
+      <div fxLayout="row">
+        <div fxFlexFill>
+          <mat-form-field class="w-100">
+            <input [(ngModel)]="lastName" name="lastName" matInput type="text" placeholder="Last Name">
+          </mat-form-field>
+        </div>
+      </div>
+      <div fxLayout="row">
+        <div fxFlexFill>
+          <button type="submit" mat-button color="primary" (click)="onLogin()" class="w-100">Login</button>
+          <button type="button" mat-raised-button color="primary" class="w-100" (click)="onSignup()">Sign Up</button>
         </div>
       </div>
     </form>
