@@ -37,7 +37,7 @@ export class SignupComponent implements OnInit {
         FirstName: this.firstName,
         LastName: this.lastName,
         Organization: 'VNPT',
-      }
+      },{}
     ).subscribe(
       data => {
         self._snackBar.open('Đăng kí thành công', '', {
@@ -47,7 +47,7 @@ export class SignupComponent implements OnInit {
         self.apiService.post('api/Account/login', {
           username: this.username,
           password: this.password,
-        }).subscribe(
+        }, {}).subscribe(
           dataLogin => {
             localStorage.setItem('userLogin', JSON.stringify(dataLogin));
             self.router.navigate(['/']);

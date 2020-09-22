@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ProductComponent } from './product/product.component';
+import { ProductComponent, AddProductDialog } from './product/product.component';
 import { CategoryComponent } from './category/category.component';
 import { ContactComponent } from './contact/contact.component';
 import { EmployeeComponent } from './employee/employee.component';
@@ -25,10 +25,18 @@ import { FormsModule } from '@angular/forms';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { HttpClientModule } from '@angular/common/http';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
+  entryComponents: [AddProductDialog],
   declarations: [
     AppComponent,
+    AddProductDialog,
     ProductComponent,
     CategoryComponent,
     ContactComponent,
@@ -38,6 +46,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     TopNavComponent,
     SideNavComponent,
     SignupComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -54,7 +63,13 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatCheckboxModule,
     FormsModule,
     MatProgressBarModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatFormFieldModule,
+    MatDialogModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

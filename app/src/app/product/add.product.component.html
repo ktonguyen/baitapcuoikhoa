@@ -1,0 +1,31 @@
+<h1 mat-dialog-title>Add Product</h1>
+<div mat-dialog-content>
+  <mat-form-field class="w-100">
+    <mat-label>Product Name</mat-label>
+    <input matInput [(ngModel)]="data.productName">
+  </mat-form-field>
+  <mat-form-field class="w-100">
+    <mat-label>Price</mat-label>
+    <input matInput type="number" [(ngModel)]="data.price">
+  </mat-form-field>
+  <mat-form-field class="w-100">
+    <mat-label>Amount</mat-label>
+    <input matInput type="number" [(ngModel)]="data.amount">
+  </mat-form-field>
+  <mat-form-field class="w-100">
+    <mat-label>Supplier</mat-label>
+    <input matInput [(ngModel)]="data.supplier">
+  </mat-form-field>
+  <mat-form-field class="w-100">
+    <mat-label>Category Name</mat-label>
+    <mat-select [(ngModel)]="data.categoryId" name="data.categoryId">
+      <mat-option *ngFor="let cat of data.category" [value]="cat.id">
+        {{cat.categoryName}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-raised-button [mat-dialog-close]="data" cdkFocusInitial>Add</button>
+</div>

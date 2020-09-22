@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
     self.apiService.post('api/Account/login', {
       username: this.username,
       password: this.password,
-    }).subscribe(
+    }, {}).subscribe(
       dataLogin => {
         localStorage.setItem('userLogin', JSON.stringify(dataLogin));
         self.router.navigate(['/']);
