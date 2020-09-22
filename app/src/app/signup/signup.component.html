@@ -1,0 +1,29 @@
+<div class="login-page">
+  <div class="content px20">
+    <form class="login-form" #myForm="ngForm" (ngSubmit)="onLogin()">
+      <div class="text-center">
+        <h2 class="app-name">Signup</h2>
+      </div>
+      <div fxLayout="row">
+        <div fxFlexFill>
+          <mat-form-field class="w-100">
+            <input matInput placeholder="Email">
+          </mat-form-field>
+        </div>
+      </div>
+       <div fxLayout="row">
+        <div fxFlexFill>
+          <mat-form-field class="w-100">
+            <input matInput type="password" placeholder="Password">
+          </mat-form-field>
+        </div>
+      </div>
+      <div fxLayout="row">
+        <div fxFlexFill>
+          <button type="submit" mat-raised-button color="primary" (click)="onLogin()" class="w-100">Login</button>
+          <button type="button" mat-button color="primary" class="w-100" (click)="onSignup()">Sign Up</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
