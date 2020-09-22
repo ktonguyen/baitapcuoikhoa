@@ -15,10 +15,11 @@
        <div fxLayout="row">
         <div fxFlexFill>
           <mat-form-field class="w-100">
-            <input [(ngModel)]="username" name="username" matInput type="password" placeholder="Password">
+            <input [(ngModel)]="password" name="password" matInput type="password" placeholder="Password">
           </mat-form-field>
         </div>
       </div>
+      <!-- Nguyễn - điều chỉnh gõ user và pass đi chung nhau-->
       <div fxLayout="row">
         <div fxFlexFill>
           <button type="submit" mat-raised-button color="primary" (click)="onLogin()" class="w-100">Login</button>
