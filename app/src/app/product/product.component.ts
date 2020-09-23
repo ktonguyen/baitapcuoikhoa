@@ -83,7 +83,7 @@ export class ProductComponent implements OnInit, AfterViewInit  {
   dialogOpenWithData (category) {
     const self = this;
     const dialogRef = this.dialog.open(AddProductDialog, {
-      width: '250px',
+      width: '400px', /*fix chieu ngang cua dialog */
       data: {productName: null,
         price: null,
         amount: null,
