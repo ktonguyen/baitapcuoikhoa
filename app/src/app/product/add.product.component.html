@@ -1,31 +1,49 @@
-<h1 mat-dialog-title>Add Product</h1>
-<div mat-dialog-content>
-  <mat-form-field class="w-100">
-    <mat-label>Product Name</mat-label>
-    <input matInput [(ngModel)]="data.productName">
-  </mat-form-field>
-  <mat-form-field class="w-100">
-    <mat-label>Price</mat-label>
-    <input matInput type="number" [(ngModel)]="data.price">
-  </mat-form-field>
-  <mat-form-field class="w-100">
-    <mat-label>Amount</mat-label>
-    <input matInput type="number" [(ngModel)]="data.amount">
-  </mat-form-field>
-  <mat-form-field class="w-100">
-    <mat-label>Supplier</mat-label>
-    <input matInput [(ngModel)]="data.supplier">
-  </mat-form-field>
-  <mat-form-field class="w-100">
-    <mat-label>Category Name</mat-label>
-    <mat-select [(ngModel)]="data.categoryId" name="data.categoryId">
-      <mat-option *ngFor="let cat of data.category" [value]="cat.id">
-        {{cat.categoryName}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+<div *ngIf="!data.view">
+  <h1 mat-dialog-title>{{data.edit? 'Edit Product':'Add Product'}}</h1>
+  <div mat-dialog-content>
+    <mat-form-field class="w-100">
+      <mat-label>Product Name</mat-label>
+      <input matInput [(ngModel)]="data.ProductName">
+    </mat-form-field>
+    <mat-form-field class="w-100">
+      <mat-label>Price</mat-label>
+      <input matInput type="number" [(ngModel)]="data.Price">
+    </mat-form-field>
+    <mat-form-field class="w-100">
+      <mat-label>Amount</mat-label>
+      <input matInput type="number" [(ngModel)]="data.Amount">
+    </mat-form-field>
+    <mat-form-field class="w-100">
+      <mat-label>Supplier</mat-label>
+      <input matInput [(ngModel)]="data.Supplier">
+    </mat-form-field>
+    <mat-form-field class="w-100">
+      <mat-label>Category Name</mat-label>
+      <mat-select [(ngModel)]="data.CategoryId" name="data.CategoryId">
+        <mat-option *ngFor="let cat of data.category" [value]="cat.id">
+          {{cat.categoryName}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Cancel</button>
+    <button mat-raised-button color="primary" [mat-dialog-close]="data" cdkFocusInitial>Save</button>
+  </div>
 </div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">Cancel</button>
-  <button mat-raised-button [mat-dialog-close]="data" cdkFocusInitial>Add</button>
+
+<div *ngIf="data.view">
+  <h1 mat-dialog-title>View Product</h1>
+  <div mat-dialog-content>
+    <p class="w-100">Product Name: {{data.ProductName}}</p>
+    <p class="w-100">Price: {{data.Price}}</p>
+    <p class="w-100">Amount: {{data.Amount}}</p>
+    <p class="w-100">Supplier: {{data.Supplier}}</p>
+    <p class="w-100">Category Name: {{data.CategoryName}}</p>
+    <p class="w-100">Product Name: {{data.ProductName}}</p>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Close</button>
+  </div>
 </div>
+

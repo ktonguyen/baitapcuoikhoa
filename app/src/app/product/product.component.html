@@ -7,47 +7,54 @@
       <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
     </mat-form-field>
   </div>
-  <table mat-table [dataSource]="dataSource" matSort class="w-100">
-    <ng-container matColumnDef="select">
-      <th mat-header-cell *matHeaderCellDef>
-        <mat-checkbox (change)="$event ? masterToggle() : null" [checked]="selection.hasValue() && isAllSelected()" [indeterminate]="selection.hasValue() && !isAllSelected()">
-        </mat-checkbox>
-      </th>
-      <td mat-cell *matCellDef="let row">
-        <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null" [checked]="selection.isSelected(row)">
-        </mat-checkbox>
-      </td>
-    </ng-container>
+  <mat-table [dataSource]="dataSource" matSort class="w-100">
     <ng-container matColumnDef="id">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
-      <td mat-cell *matCellDef="let row"> {{row.Id}} </td>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row? row.Id: ''}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="productName">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
-      <td mat-cell *matCellDef="let row"> {{row.ProductName}}</td>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row? row.ProductName: ''}}</mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="price">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Price </th>
-      <td mat-cell *matCellDef="let row"> {{row.Price}} </td>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Price </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row? row.Price: ''}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="amount">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Amount </th>
-      <td mat-cell *matCellDef="let row"> {{row.Amount}} </td>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Amount </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row? row.Amount: ''}} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="supplier">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Supplier </th>
-      <td mat-cell *matCellDef="let row" > {{row.Supplier}} </td>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Supplier </mat-header-cell>
+      <mat-cell *matCellDef="let row" > {{row? row.Supplier: ''}} </mat-cell>
     </ng-container>
-    <ng-container matColumnDef="categoryName">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Category </th>
-      <td mat-cell *matCellDef="let row" > {{row.CategoryName}} </td>
+    <ng-container matColumnDef="actionsColumn">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Actions </mat-header-cell>
+        <mat-cell *matCellDef="let row">
+          <div class="button-row">
+            <button mat-icon-button color="accent" (click)="view(row)" aria-label="View">
+            <mat-icon>menu</mat-icon>
+            </button>
+            <button mat-icon-button color="primary" (click)="edit(row)"
+            aria-label="Edit">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" (click)="delete(row)"
+            aria-label="Delete">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+        </mat-cell>
     </ng-container>
-    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)"></tr>
-  </table>
+    <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)"></mat-row>
+  </mat-table>
 
-  <mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  <mat-paginator #paginator
+    showFirstLastButtons
+    (page)='pageEvent = onHandleChange($event)'
+    [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
 </section>

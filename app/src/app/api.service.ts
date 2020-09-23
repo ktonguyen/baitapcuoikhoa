@@ -21,9 +21,11 @@ export class ApiService {
       headers: new HttpHeaders({ 'Content-Type': 'application/json', ...auth })
     });
   }
-  public put(api, data) {
+  public put(api, data, auth) {
     let body = JSON.stringify(data)
-    return this.http.put(this.baseUrl + api, body, httpOptions);
+    return this.http.put(this.baseUrl + api, body, {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json', ...auth })
+    });
   }
   public post(api, data, auth) {
     let body = JSON.stringify(data)
@@ -31,7 +33,9 @@ export class ApiService {
       headers: new HttpHeaders({ 'Content-Type': 'application/json', ...auth })
     });
   }
-  public delete(api, data) {
-    return this.http.delete(this.baseUrl + api, httpOptions);
+  public delete(api, auth) {
+    return this.http.delete(this.baseUrl + api, {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json', ...auth })
+    });
   }
 }
