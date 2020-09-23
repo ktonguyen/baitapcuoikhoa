@@ -75,7 +75,7 @@ export class ProductComponent implements OnInit, AfterViewInit  {
   dialogOpenWithData (dataRow) {
     const self = this;
     const dialogRef = this.dialog.open(AddProductDialog, {
-      width: '250px',
+      width: '400px',
       data: dataRow});
 
     dialogRef.afterClosed().subscribe((result: any) => {

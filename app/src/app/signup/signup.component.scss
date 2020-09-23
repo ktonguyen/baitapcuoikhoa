@@ -11,15 +11,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 80%;
     .app-name {
       margin-top: 0px;
       padding-bottom: 10px;
       font-size: 32px;
     }
     .login-form {
-      padding: 40px;
+      padding: 20px;
       background: $white;
       max-width: 500px;
+      width: 50%;
       box-shadow: 0 0 10px #ddd;
       input:-webkit-autofill {
         box-shadow: 0 0 0 10px $white inset;
