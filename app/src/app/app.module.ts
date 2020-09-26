@@ -1,10 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductComponent, AddProductDialog } from './product/product.component';
-import { CategoryComponent } from './category/category.component';
+import { CategoryComponent, AddCategoryDialog } from './category/category.component';
 import { ContactComponent } from './contact/contact.component';
 import { AddEmployeeDialog, EmployeeComponent } from './employee/employee.component';
 import { HomeComponent } from './home/home.component';
@@ -33,11 +32,12 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
-  entryComponents: [AddProductDialog ,AddEmployeeDialog],
+  entryComponents: [AddProductDialog ,AddEmployeeDialog, AddCategoryDialog],
   declarations: [
     AppComponent,
     AddProductDialog,
     AddEmployeeDialog,
+    AddCategoryDialog,
     ProductComponent,
     CategoryComponent,
     ContactComponent,

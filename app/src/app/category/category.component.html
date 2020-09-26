@@ -1,1 +1,47 @@
-<p>category works!</p>
+<section id="sample-table" class="mat-elevation-z8 bg-white">
+    <div fxLayout="row" align="end" class="pr15 pt15">
+      <button mat-raised-button (click)="openDialog()" color="primary">Add Category</button>
+    </div>
+    <div fxLayout="row" align="end" class="pr15">
+      <mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+      </mat-form-field>
+    </div>
+    <mat-table [dataSource]="dataSource" matSort class="w-100">
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row? row.id: ''}} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="categoryName">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> CategoryName </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row? row.categoryName: ''}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="actionsColumn">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Actions </mat-header-cell>
+        <mat-cell *matCellDef="let row">
+          <div class="button-row">
+            <button mat-icon-button color="accent" (click)="view(row)" aria-label="View">
+            <mat-icon>menu</mat-icon>
+            </button>
+            <button mat-icon-button color="primary" (click)="edit(row)"
+            aria-label="Edit">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" (click)="delete(row)"
+            aria-label="Delete">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+        </mat-cell>
+    </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)"></mat-row>
+    </mat-table>
+  
+    <mat-paginator #paginator
+      showFirstLastButtons
+      (page)='pageEvent = onHandleChange($event)'
+      [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  </section>
+  
