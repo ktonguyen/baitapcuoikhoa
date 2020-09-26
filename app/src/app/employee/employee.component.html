@@ -1,1 +1,65 @@
-<p>employee works!</p>
+<section id="sample-table" class="mat-elevation-z8 bg-white">
+    <div fxLayout="row" align="end" class="pr15 pt15">
+      <button mat-raised-button (click)="openDialog()" color="primary">Thêm nhân viên</button>
+    </div>
+    <div fxLayout="row" align="end" class="pr15">
+      <mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Tìm kiếm">
+      </mat-form-field>
+    </div>
+    <mat-table [dataSource]="dataSource" matSort class="w-100">
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row? row.Id: ''}} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="maPhongBan">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Mã phòng ban </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row? row.MaPhongBan: ''}}</mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="maChucVu">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Mã chức vụ </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row? row.MaChucVu: ''}} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="hoTen">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Họ tên </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row? row.HoTen: ''}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="soDienThoai">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Số điện thoại </mat-header-cell>
+        <mat-cell *matCellDef="let row" > {{row? row.SoDienThoai: ''}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="namSinh">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Năm sinh </mat-header-cell>
+        <mat-cell *matCellDef="let row" > {{row.NamSinh | date:"yyyy"}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="actionsColumn">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Thao tác </mat-header-cell>
+          <mat-cell *matCellDef="let row">
+            <div class="button-row">
+              <button mat-icon-button color="accent" (click)="view(row)" aria-label="View">
+              <mat-icon>pending</mat-icon>
+              </button>
+              <button mat-icon-button color="primary" (click)="edit(row)"
+              aria-label="Edit">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button mat-icon-button color="warn" (click)="delete(row)"
+              aria-label="Delete">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>
+          </mat-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)"></mat-row>
+    </mat-table>
+  
+    <mat-paginator #paginator
+      showFirstLastButtons
+      (page)='pageEvent = onHandleChange($event)'
+      [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  </section>
+  

@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { ProductComponent, AddProductDialog } from './product/product.component';
 import { CategoryComponent } from './category/category.component';
 import { ContactComponent } from './contact/contact.component';
-import { EmployeeComponent } from './employee/employee.component';
+import { AddEmployeeDialog, EmployeeComponent } from './employee/employee.component';
 import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './login/login.component';
@@ -33,10 +33,11 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
-  entryComponents: [AddProductDialog],
+  entryComponents: [AddProductDialog ,AddEmployeeDialog],
   declarations: [
     AppComponent,
     AddProductDialog,
+    AddEmployeeDialog,
     ProductComponent,
     CategoryComponent,
     ContactComponent,

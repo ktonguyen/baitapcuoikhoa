@@ -1,0 +1,59 @@
+<div *ngIf="!data.view">
+    <h1 mat-dialog-title>{{data.edit? 'Sửa nhân viên':'Thêm nhân viên'}}</h1>
+    <div mat-dialog-content>
+      <mat-form-field class="w-100">
+        <mat-label>Mã phòng ban</mat-label>
+        <input matInput type="number" [(ngModel)]="data.maPhongBan">
+      </mat-form-field>
+      <mat-form-field class="w-100">
+        <mat-label>Mã chức vụ</mat-label>
+        <input matInput type="number" [(ngModel)]="data.maChucVu">
+      </mat-form-field>
+      <mat-form-field class="w-100">
+        <mat-label>Họ tên</mat-label>
+        <input matInput type="text" [(ngModel)]="data. HoTen">
+      </mat-form-field>
+      <mat-form-field class="w-100">
+        <mat-label>Số điện thoại</mat-label>
+        <input matInput type="number" [(ngModel)]="data.SoDienThoai">
+      </mat-form-field>
+      <mat-form-field class="w-100">
+        <mat-label>Mail</mat-label>
+        <input matInput type="text" [(ngModel)]="data.Mail">
+      </mat-form-field>
+      <mat-form-field class="w-100">
+        <mat-label>Năm sinh</mat-label>
+        <input matInput type="date" [(ngModel)]="data.NamSinh">
+      </mat-form-field>
+      <mat-form-field class="w-100">
+        <mat-label>Trạng thái</mat-label>
+        <input matInput type="number" [(ngModel)]="data.Trangthai">
+      </mat-form-field>
+      <mat-form-field class="w-100">
+        <mat-label>Ảnh</mat-label>
+        <input matInput type="text" [(ngModel)]="data.AnhDaiDien">
+      </mat-form-field>
+      
+    </div>
+    <div mat-dialog-actions>
+      <button mat-button (click)="onNoClick()">Cancel</button>
+      <button mat-raised-button color="primary" [mat-dialog-close]="data" cdkFocusInitial>Save</button>
+    </div>
+  </div>
+  
+  <div *ngIf="data.view">
+    <h1 mat-dialog-title>View Product</h1>
+    <div mat-dialog-content>
+      <p class="w-100">Mã chức vụ: {{data.MaChucVu}}</p>
+      <p class="w-100">Mã phòng: {{data.MaPhongBan}}</p>
+      <p class="w-100">Họ tên: {{data.HoTen}}</p>
+      <p class="w-100">Số Điện thoại: {{data.SoDienThoai}}</p>
+      <p class="w-100">Email: {{data.Mail}}</p>
+      <p class="w-100">Năm sinh: {{data.NamSinh}}</p>
+      <p class="w-100">Trạng thái: {{data.TrangThai}}</p>
+    </div>
+    <div mat-dialog-actions>
+      <button mat-button (click)="onNoClick()">Close</button>
+    </div>
+  </div>
+  
