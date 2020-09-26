@@ -37,7 +37,9 @@
 
         <ng-container matColumnDef="countryInfo">
             <mat-header-cell *matHeaderCellDef mat-sort-header> # </mat-header-cell>
-            <mat-cell *matCellDef="let row"> <img [src]="[row? row.countryInfo.flag: '']" alt="image"> </mat-cell>
+            <mat-cell *matCellDef="let row"> 
+                <img [src]="[row? row.countryInfo.flag: '']" alt="image"> 
+            </mat-cell>
         </ng-container>
         <mat-header-row *matHeaderRowDef="columnDisplay; sticky: true"></mat-header-row>
         <mat-row *matRowDef="let row; columns: columnDisplay;"></mat-row>

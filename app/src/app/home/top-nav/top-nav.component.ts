@@ -16,6 +16,11 @@ export class TopNavComponent implements OnInit {
   toggleSidebar() {
     this.sideNavToggled.emit();
   }
+  getUser(){
+    var user = JSON.parse(localStorage.getItem('userLogin'));
+    //console.log(user.object.userName);
+    return user.object.userName;
+  }
 
   onLoggedout() {
     localStorage.removeItem('userLogin');
