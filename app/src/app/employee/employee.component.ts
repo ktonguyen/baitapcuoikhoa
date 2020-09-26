@@ -90,13 +90,15 @@ export class EmployeeComponent implements OnInit {
     });
     
     dialogRef.afterClosed().subscribe((result: any) => {
-      console.log('The dialog was closed', result, result.edit);
+      console.log('The dialog was closed', result);
 
       if (result.edit) {
         delete result.edit;
+        console.log(result);
         this.apiService.put('api/DanhBa/edit-nhan-vien',
           {
             ...result
+            
           },
           { 'Authorization': 'Bearer ' + this.user.object.accessToken }
         ).subscribe(
@@ -136,6 +138,7 @@ export class EmployeeComponent implements OnInit {
               Id: data.object.data
             })
             self.dataSource._updateChangeSubscription();
+            self.refreshGrid();
           },
           error => {
             self._snackBar.open('Tạo mới thất bại', '', {
@@ -214,6 +217,7 @@ export class EmployeeComponent implements OnInit {
       Id: row.Id,
       edit: true
     });
+    console.log(row);
   }
 
   delete(row) {
