@@ -38,4 +38,13 @@ export class ApiService {
       headers: new HttpHeaders({ 'Content-Type': 'application/json', ...auth })
     });
   }
+  //add covid
+  public covid19Rp():any {
+    let urls = 'https://corona.lmao.ninja/v3/covid-19/countries';
+    return this.http.get(urls);
+  }
+  public covid19Gets(api, data, auth) {
+    return this.http.get('https://corona.lmao.ninja/v3/covid-19/countries');
+  }
+  //end covid
 }

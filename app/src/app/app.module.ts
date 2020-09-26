@@ -30,6 +30,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   entryComponents: [AddProductDialog ,AddEmployeeDialog, AddCategoryDialog],
@@ -70,7 +71,8 @@ import { MatSelectModule } from '@angular/material/select';
     MatSortModule,
     MatFormFieldModule,
     MatDialogModule,
-    MatSelectModule
+    MatSelectModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

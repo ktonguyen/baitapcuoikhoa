@@ -1,1 +1,47 @@
-<p>contact works!</p>
+<h3 class="mat-display-1" align="center">Diễn biến covid19 trên thế giới</h3>
+<!--table-->
+<section id="sample-table" class="mat-elevation-z8 bg-white">
+    <div fxLayout="row" align="end" class="pr15 pt15">
+        <mat-form-field>
+            <input matInput type="text" (keyup)="doFilter($event.target.value)" placeholder="Filter">
+        </mat-form-field>
+    </div>
+    <mat-table [dataSource]="dataSource" matSort class="w-100">
+        <ng-container matColumnDef="country">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Tên nước </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row? row.country: ''}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="cases">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Số ca nhiễm </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row? row.cases: ''}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="todayCases">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Ghi mới </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row? row.todayCases: ''}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="deaths">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Tử vong </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row? row.deaths: ''}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="recovered">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Đã khỏi </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row? row.recovered: ''}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="todayRecovered">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Hôm nay khỏi </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row? row.todayRecovered: ''}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="countryInfo">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> # </mat-header-cell>
+            <mat-cell *matCellDef="let row"> <img [src]="[row? row.countryInfo.flag: '']" alt="image"> </mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="columnDisplay; sticky: true"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: columnDisplay;"></mat-row>
+    </mat-table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</section>
+<!-- end table-->

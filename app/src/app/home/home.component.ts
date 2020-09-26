@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { MediaObserver, MediaChange } from '@angular/flex-layout';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
+  
   sideNavOpened = true;
   sideNavMode: 'side' | 'over' = 'side';
   toolBarHeight = 64;
@@ -35,11 +35,10 @@ export class HomeComponent implements OnInit {
         this.toolBarHeight = 64;
       }
     });
+    
   }
-  ngOnInit() { }
-
-  ngOnDestroy(): void {
-    this.mediaWatcher.unsubscribe();
+  ngOnInit() { 
+   
   }
 
 }
